@@ -1,0 +1,56 @@
+<div *ngFor="let like of model.likes; first as isFirst">
+  <nz-form-item>
+    <nz-form-label
+      *ngIf="isFirst"
+      [nzSm]="6"
+      [nzXs]="24"
+      nzFor="'likeName-' + like.id"
+      >Likes</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="{ span: 14, offset: isFirst ? 0 : 6 }"
+      [nzXs]="24"
+      [nzErrorTip]="combinedError"
+    >
+      <nz-input-group>
+        <div nz-row>
+          <div nz-col nzFlex="1">
+            <input
+              nz-input
+              [(ngModel)]="like.name"
+              [name]="'likeName-' + like.id"
+              required
+              forbiddenName
+              #name="ngModel"
+            />
+          </div>
+          <ng-template #combinedError let-control>
+            <ng-container *ngIf="control.hasError('forbiddenName')"
+              >No one likes star wars</ng-container
+            >
+            <ng-container *ngIf="control.hasError('required')"
+              >Description is required</ng-container
+            >
+          </ng-template>
+          <div nz-col>
+            <button nz-button type="button" (click)="this.removeLike(like)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</div>
+<div *ngIf="model.likes.length === 0">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24">Likes</nz-form-label>
+  </nz-form-item>
+</div>
+<nz-form-item>
+  <nz-form-control [nzSm]="{ span: 14, offset: 6 }" [nzXs]="24">
+    <button nz-button type="button" nzType="default" (click)="this.addLike()">
+      Add Like
+    </button>
+  </nz-form-control>
+</nz-form-item>

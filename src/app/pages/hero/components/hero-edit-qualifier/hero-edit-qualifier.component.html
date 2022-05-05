@@ -1,0 +1,49 @@
+<nz-form-item *ngIf="!this.isOther()">
+  <nz-form-label
+    [nzSm]="6"
+    nzRequired
+    [nzXs]="24"
+    nzRequired
+    nzFor="powerQualifier"
+    >Power qualifier</nz-form-label
+  >
+  <nz-form-control [nzSm]="14" [nzXs]="24" nzHasFeedback>
+    <nz-select
+      [(ngModel)]="hero.powerQualifier"
+      name="powerQualifier"
+      [disabled]="!this.hasQualifiers"
+      nzPlaceHolder="Select a power qualifier"
+      required
+    >
+      <nz-option
+        *ngFor="let qual of hero.power | qualifiers"
+        nzValue="{{ qual }}"
+        nzLabel="{{ qual }}"
+      ></nz-option>
+    </nz-select>
+  </nz-form-control>
+</nz-form-item>
+<nz-form-item *ngIf="this.isOther()">
+  <nz-form-label
+    [nzSm]="6"
+    nzRequired
+    [nzXs]="24"
+    nzRequired
+    nzFor="otherPowerQualifier"
+    >Power qualifier</nz-form-label
+  >
+  <nz-form-control
+    [nzSm]="14"
+    [nzXs]="24"
+    nzHasFeedback
+    nzErrorTip="Description of 'other' is required"
+  >
+    <input
+      nz-input
+      name="otherPowerQualifier"
+      [(ngModel)]="hero.powerQualifier"
+      required
+      placeholder="Describe this hero power"
+    />
+  </nz-form-control>
+</nz-form-item>

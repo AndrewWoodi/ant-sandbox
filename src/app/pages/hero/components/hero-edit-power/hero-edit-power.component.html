@@ -1,0 +1,21 @@
+<nz-form-item>
+  <nz-form-label [nzSm]="6" nzRequired [nzXs]="24" nzFor="power">
+    Hero Power
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <nz-select
+      [(ngModel)]="hero.power"
+      name="power"
+      required
+      #power="ngModel"
+      nzPlaceHolder="Select a power"
+      (ngModelChange)="this.onPowerChange()"
+    >
+      <nz-option
+        *ngFor="let pow of powers"
+        nzLabel="{{ pow.name }}"
+        nzValue="{{ pow.name }}"
+      ></nz-option>
+    </nz-select>
+  </nz-form-control>
+</nz-form-item>

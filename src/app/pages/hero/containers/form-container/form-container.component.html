@@ -1,0 +1,5 @@
+<nz-page-header nzTitle="Hero Form"></nz-page-header>
+<div *ngIf="editing">
+  <app-hero-form [vm]="vm$ | async" (cancel)="close()" (save)="save($event)">
+  </app-hero-form>
+</div>

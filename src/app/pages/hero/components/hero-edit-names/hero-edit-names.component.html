@@ -1,0 +1,16 @@
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name"
+    >Hero Name</nz-form-label
+  >
+  <nz-form-control [nzSm]="14" [nzXs]="24" nzHasFeedback nzErrorTip="Hero Name is required">
+    <input nz-input [(ngModel)]="hero.name" name="name" required />
+  </nz-form-control>
+</nz-form-item>
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="alterEgo"
+    >Alter Ego</nz-form-label
+  >
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="hero.alterEgo" name="alterEgo"/>
+  </nz-form-control>
+</nz-form-item>

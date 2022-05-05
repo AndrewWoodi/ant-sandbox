@@ -1,0 +1,16 @@
+<form nz-form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+  <app-hero-edit-names [hero]="vm!.hero"></app-hero-edit-names>
+  <app-hero-edit-power [hero]="vm!.hero"></app-hero-edit-power>
+  <app-hero-edit-qualifier [hero]="vm!.hero"></app-hero-edit-qualifier>
+  <app-likes-edit [model]="vm!"> </app-likes-edit>
+  <button nz-button nzType="primary" [disabled]="!heroForm.valid">Save</button>
+  <button nz-button nzType="default">Cancel</button>
+  <button nz-button nzType="default" (click)="this.addHero()">New Hero</button>
+
+  <hr />
+  <h5><b>Hero ViewModel Peek</b></h5>
+  <p>Hero:</p>
+  <code>{{ vm!.hero | json }}</code> <br /><br />
+  <p>Likes:</p>
+  <code>{{ vm!.likes | json }}</code>
+</form>
