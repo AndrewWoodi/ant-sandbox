@@ -12,33 +12,31 @@
       [nzXs]="24"
       [nzErrorTip]="combinedError"
     >
-      <nz-input-group>
-        <div nz-row>
-          <div nz-col nzFlex="1">
-            <input
-              nz-input
-              [(ngModel)]="like.name"
-              [name]="'likeName-' + like.id"
-              required
-              forbiddenName
-              #name="ngModel"
-            />
-          </div>
-          <ng-template #combinedError let-control>
-            <ng-container *ngIf="control.hasError('forbiddenName')"
-              >No one likes star wars</ng-container
-            >
-            <ng-container *ngIf="control.hasError('required')"
-              >Description is required</ng-container
-            >
-          </ng-template>
-          <div nz-col>
-            <button nz-button type="button" (click)="this.removeLike(like)">
-              Delete
-            </button>
-          </div>
+      <div nz-row>
+        <div nz-col nzFlex="1">
+          <input
+            nz-input
+            [(ngModel)]="like.name"
+            [name]="'likeName-' + like.id"
+            required
+            forbiddenName
+            #name="ngModel"
+          />
         </div>
-      </nz-input-group>
+        <ng-template #combinedError let-control>
+          <ng-container *ngIf="control.hasError('forbiddenName')"
+            >No one likes star wars</ng-container
+          >
+          <ng-container *ngIf="control.hasError('required')"
+            >Description is required</ng-container
+          >
+        </ng-template>
+        <div nz-col>
+          <button nz-button type="button" (click)="this.removeLike(like)">
+            Delete
+          </button>
+        </div>
+      </div>
     </nz-form-control>
   </nz-form-item>
 </div>
