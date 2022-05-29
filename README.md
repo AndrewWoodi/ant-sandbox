@@ -1,6 +1,6 @@
 # AntSandbox
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+This project is a sandbox to investigate the ant-design library for Angular (https://ng.ant.design/docs/introduce/en)
 
 ## Development server
 
